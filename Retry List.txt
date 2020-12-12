@@ -1,3 +1,4 @@
 3
+19 -> Pointer solution (pointer to Pointer)
 94 -> Morris Traversal
 144 -> Morris Traversal
