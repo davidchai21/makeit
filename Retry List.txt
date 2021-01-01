@@ -1,6 +1,7 @@
 3
 9 -> half-pass solution
 19 -> Pointer solution (pointer to Pointer)
+84 -> use of stack
 94 -> Morris Traversal
 144 -> Morris Traversal
 239 -> deque (sliding window)
