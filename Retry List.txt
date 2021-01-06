@@ -2,6 +2,7 @@
 9 -> half-pass solution
 19 -> Pointer solution (pointer to Pointer)
 40
+46 -> swap
 84 -> use of stack
 94 -> Morris Traversal
 144 -> Morris Traversal
@@ -18,5 +19,6 @@
 988 -> DFS
 1089
 105,106
+1286
 1305
 1382 -> DSW Algorithm

@@ -85,3 +85,57 @@ private:
  * string param_1 = obj->next();
  * bool param_2 = obj->hasNext();
  */
+
+// Knuth Algorithn L:
+
+class CombinationIterator {
+public:
+    CombinationIterator(string characters, int combinationLength) {
+        n = characters.size();
+        k = combinationLength;
+        cha = characters;
+        record.resize(k+1);
+        for (int i=0;i<k;++i) record[i] = i;
+        record[k] = n;
+        has_next = true;
+    }
+    
+    string next() {
+        string res = getStr();
+        int index = k-1;
+        while (index >=0 && record[index] == record[index+1]-1) --index;
+        if (index < 0) {
+            has_next = false;
+        } else {
+            ++record[index];
+            for (int i=index+1;i<k;++i) {
+                record[i] = record[index] + i-index;
+            }
+        }
+        return res;
+    }
+    
+    bool hasNext() {
+        return this->has_next;
+    }
+private:
+    vector<int> record;
+    int n,k;
+    string cha;
+    bool has_next;
+    
+    string getStr() {
+        string res(k,'x');
+        for (int i=0;i<k;++i) {
+            res[i] = cha[record[i]];
+        }
+        return res;
+    }
+};
+
+/**
+ * Your CombinationIterator object will be instantiated and called as such:
+ * CombinationIterator* obj = new CombinationIterator(characters, combinationLength);
+ * string param_1 = obj->next();
+ * bool param_2 = obj->hasNext();
+ */
