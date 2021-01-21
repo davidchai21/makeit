@@ -6,6 +6,7 @@
 84 -> use of stack
 94 -> Morris Traversal
 144 -> Morris Traversal
+215 -> Quick Select
 236
 239 -> deque (sliding window)
 297 -> serialize & deserialize Binary Tree
