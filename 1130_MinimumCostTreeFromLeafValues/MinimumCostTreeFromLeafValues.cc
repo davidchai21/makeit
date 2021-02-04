@@ -25,3 +25,26 @@ public:
         return record[0][n-1];
     }
 };
+
+// Stack:
+
+class Solution {
+public:
+    int mctFromLeafValues(vector<int>& arr) {
+        vector<int> st;
+        st.push_back(INT_MAX);
+        int res = 0;
+        for (int& num : arr) {
+            while (num >= st.back()) {
+                int mid = st.back();
+                st.pop_back();
+                res += min(st.back(), num)*mid;
+            }
+            st.push_back(num);
+        }
+        for (int i=2;i<st.size();++i) {
+            res += st[i-1]*st[i];
+        }
+        return res;
+    }
+};

@@ -25,6 +25,7 @@
 988 -> DFS
 1089
 105,106,889 -> 3 order to construct tree
+1130 -> stack
 1286
 1305
 1382 -> DSW Algorithm
