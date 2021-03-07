@@ -3,6 +3,7 @@
 9 -> half-pass solution
 19 -> Pointer solution (pointer to Pointer)
 40
+41
 46 -> swap
 84 -> use of stack
 94 -> Morris Traversal
