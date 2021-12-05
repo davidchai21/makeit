@@ -39,6 +39,26 @@ public:
     }
 };
 
+// O(n) DP:
+
+class Solution {
+public:
+    bool stoneGame(vector<int>& piles) {
+        int n = piles.size();
+        vector<int> res(n, 0), t(n, 0);
+        for (int i=0;i<n;++i) {
+            for (int j=i;j>=0;--j) {
+                if (i==j) t[i] = piles[i];
+                else {
+                    t[j] = max(piles[j] - t[j+1], piles[i] - res[j]);
+                }
+            }
+            res.swap(t);
+        }
+        return res.front() > 0;
+    }
+};
+
 // Math way:
 
 class Solution {

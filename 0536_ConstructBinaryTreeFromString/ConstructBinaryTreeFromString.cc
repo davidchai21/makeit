@@ -46,3 +46,54 @@ public:
         return st.empty() ? nullptr : st.top();
     }
 };
+
+// DFS:
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    TreeNode* str2tree(string s) {
+        if (s.empty()) return nullptr;
+        int index = 0;
+        return helper(s, index);
+    }
+private:
+    TreeNode* helper(string& s, int& index) {
+        if (index >= s.size()) return nullptr;
+        
+        int sign = 1;
+        int val = 0;
+        if (s[index] == '-') {
+            sign = -1;
+            ++index;
+        }
+        while (index < s.size() && isdigit(s[index])) {
+            val = val*10+(s[index++]-'0');
+        }
+        
+        TreeNode* root = new TreeNode(sign*val);
+        if (index < s.size() && s[index] == '(') {
+            ++index;
+            root->left = helper(s, index);
+            ++index;
+            
+            if (index<s.size() && s[index] == '(') {
+                ++index;
+                root->right = helper(s, index);
+                ++index;
+            }
+        }
+        
+        return root;
+    }
+};
